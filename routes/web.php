@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -20,12 +19,6 @@ Route::get('/about', function () {
 
 Route::view('/contact', 'pages.contact');
 
-Route::get('/product', [ProductController::class, 'index']);
-Route::get('/product/addProduct', [ProductController::class, 'addProduct']);
-
-// Route untuk menyimpan produk
-Route::post('/product/store', [ProductController::class, 'store']);
-
 Route::get('/latihan', function () {
     $matakuliah = ['Pemrograman Web', 'Basis Data', 'UI/UX'];
 
@@ -40,9 +33,7 @@ Route::get('/sapa', [SapaController::class, 'index']);
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/addProduct', [ProductController::class, 'addProduct']);
 Route::post('/product/store', [ProductController::class, 'store']);
-
 Route::get('/product/{id}/edit', [ProductController::class, 'edit']);
-Route::get('/product/{id}', [ProductController::class, 'show']);
 Route::put('/product/{id}', [ProductController::class, 'update']);
 Route::delete('/product/{id}', [ProductController::class, 'destroy']);
 

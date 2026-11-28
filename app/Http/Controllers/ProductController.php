@@ -42,6 +42,16 @@ class ProductController extends Controller
         return redirect('/product')->with('success', 'Produk berhasil ditambahkan!');
     }
 
+        // Menampilkan detail produk
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return view('pages.product.detail', [
+            'product' => $product,
+        ]);
+    }
+
     // Menampilkan form edit
     public function edit($id)
     {
@@ -53,7 +63,7 @@ class ProductController extends Controller
     }
 
     // Menyimpan perubahan
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
         $validated = $request->validate([
             'name_product' => 'required|string|max:255',
